@@ -6,8 +6,19 @@ app_publisher = "ROI Retrievers"
 app_description = "Customizations to ERPNext for Bacancy Systems"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "roiretrievers@gmail.com​"
+app_email = "info@roiretrievers.com​"
 app_license = "MIT"
+
+doctype_js = {
+    "Item Group": "client_scripts/item_group.js",
+}
+
+doc_events = {
+    "Item Group": {
+        "onload": "bacancy.overrides.item_group.onload",
+        "validate": "bacancy.overrides.item_group.validate",
+    },
+}
 
 # Includes in <head>
 # ------------------

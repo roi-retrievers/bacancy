@@ -11,7 +11,7 @@ setup(
 	version=version,
 	description="Customizations to ERPNext for Bacancy Systems",
 	author="ROI Retrievers",
-	author_email="roiretrievers@gmail.com​",
+	author_email="info@roiretrievers.com​",
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,
