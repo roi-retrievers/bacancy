@@ -4,10 +4,6 @@ from frappe import _
 from frappe.utils.nestedset import get_root_of, get_descendants_of
 
 
-def onload(doc, method=None):
-    doc.set_onload("root_item_group", get_root_item_group())
-
-
 def validate(doc, method=None):
     root_item_group = get_root_item_group()
 

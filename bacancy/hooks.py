@@ -8,6 +8,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "info@roiretrievers.com​"
 app_license = "MIT"
+boot_session = "bacancy.boot.set_bootinfo"
 
 doctype_js = {
     "Item Group": "client_scripts/item_group.js",
@@ -19,6 +20,7 @@ doc_events = {
         "validate": "bacancy.overrides.item_group.validate",
     },
 }
+
 
 # Includes in <head>
 # ------------------
