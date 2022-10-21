@@ -26,5 +26,5 @@ function is_root(frm, item_group) {
         item_group = frm.doc.name;
     };
 
-    return item_group === frm.frappe.boot.root_item_group;
+    return item_group === frappe.boot.root_item_group;
 }
