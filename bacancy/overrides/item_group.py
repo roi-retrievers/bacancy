@@ -29,7 +29,7 @@ def validate(doc, method=None):
         if not doc.pch_sc_item_series:
             frappe.throw("Subcategory Item Series is required", frappe.MandatoryError)
 
-    else:
+    elif doc.has_value_changed("parent_item_group"):
         doc.pch_sc_item_series = frappe.db.get_value(
             "Item Group",
             doc.parent_item_group,
