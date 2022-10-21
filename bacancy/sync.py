@@ -23,6 +23,7 @@ def create_fields():
                     "eval: doc.parent_item_group !== doc.__onload?.root_item_group ||"
                     " !doc.__islocal && doc.pch_sc_item_series"
                 ),
+                "translatable": 0,
             },
         ]
     }
