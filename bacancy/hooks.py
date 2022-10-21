@@ -16,7 +16,6 @@ doctype_js = {
 
 doc_events = {
     "Item Group": {
-        "onload": "bacancy.overrides.item_group.onload",
         "validate": "bacancy.overrides.item_group.validate",
     },
 }

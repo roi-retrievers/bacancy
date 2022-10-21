@@ -17,6 +17,7 @@ def validate(doc, method=None):
     if not doc.parent_item_group:
         frappe.throw("Parent Item Group is required", frappe.MandatoryError)
 
+    old_doc = doc.get_doc_before_save()
     is_category = doc.parent_item_group == root_item_group
 
     if is_category:
@@ -25,10 +26,10 @@ def validate(doc, method=None):
         if not doc.pch_sc_item_series:
             frappe.throw("Subcategory Item Series is required", frappe.MandatoryError)
 
-        if doc.get_doc_before_save().parent_item_group != root_item_group:
+        if old_doc and old_doc.parent_item_group != root_item_group:
             frappe.throw("Cannot convert a sub-category to a category")
 
-    elif doc.get_doc_before_save().parent_item_group == root_item_group:
+    elif old_doc and old_doc.parent_item_group == root_item_group:
         frappe.throw("Cannot convert a category to a sub-category")
 
     elif doc.has_value_changed("parent_item_group"):
@@ -38,8 +39,7 @@ def validate(doc, method=None):
             "pch_sc_item_series",
         )
 
-    old_doc = doc.get_doc_before_save()
-    old_value = old_doc.get("pch_sc_item_series") if old_doc else None
+    old_value = old_doc.pch_sc_item_series if old_doc else None
     current_value = doc.pch_sc_item_series
 
     if old_value and old_value != current_value:
