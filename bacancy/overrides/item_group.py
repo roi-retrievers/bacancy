@@ -29,6 +29,9 @@ def validate(doc, method=None):
         if not doc.pch_sc_item_series:
             frappe.throw("Subcategory Item Series is required", frappe.MandatoryError)
 
+        if doc.get_doc_before_save().parent_item_group != root_item_group:
+            frappe.throw("Cannot convert a sub-category to a category")
+
     elif doc.has_value_changed("parent_item_group"):
         doc.pch_sc_item_series = frappe.db.get_value(
             "Item Group",
